@@ -15,8 +15,7 @@ angular.module('public')
     signCtrl.saved = false;
 
     signCtrl.submit = function(){
-      console.log(signCtrl.FirstName,signCtrl.LastName,signCtrl.Phone,signCtrl.Email,signCtrl.MenuItem);
-      InfoService.setUser(signCtrl.FirstName,signCtrl.LastName,signCtrl.Phone,signCtrl.Email,signCtrl.MenuItem);
+      InfoService.setUser(signCtrl.FirstName,signCtrl.LastName,signCtrl.Email,signCtrl.Phone,signCtrl.MenuItem);
       signCtrl.saved = true;
 
     };
