@@ -1,0 +1,44 @@
+<div class="container">
+  <h1 style="text-align:center;" ng-show="!signCtrl.saved"> Sign Up to receive a weekly newsletter</h1> <h3 style="text-align:center;" ng-show="!signCtrl.saved">(not really just showing validation features)</h3>
+  <div style="text-align:center;" ng-show="!signCtrl.saved">
+    <fieldset>
+      <legend style="color:white;">Sign Up</legend>
+      <form name='signform' novalidate>
+        <h4>First Name:<br>
+          <input type="text" name="Fname" style="width:30%;color:black;text-align:center;" required ng-model="signCtrl.FirstName"><br>
+                <span ng-if="signform.Fname.$invalid && signform.Fname.$touched">
+                  Must fill in your First Name
+                </span>
+        </h4>
+        <h4>Last Name:<br>
+          <input type="text" style="width:30%;color:black;text-align:center;" name="Lname" required ng-model="signCtrl.LastName"><br>
+                <span ng-if="signform.Lname.$invalid && signform.Lname.$touched">
+                  Must fill in your Last Name
+                </span>
+        </h4><h4>Email:<br>
+          <input type="email" name="email" style="width:30%;color:black;text-align:center;" ng-model="signCtrl.Email" required><br>
+                <span ng-if="signform.email.$invalid && signform.email.$touched">
+                  Must be a valid email address: handle@domain format
+                </span>
+        </h4><h4>Phone Number:<br>
+          <input type="text" name="phone" style="width:30%;color:black;text-align:center;" ng-model="signCtrl.Phone" required pattern="(\d{3})-(\d{3})-(\d{4})"><br>
+            <span ng-if="signform.phone.$invalid && signform.phone.$touched">
+              Phone must be in the format ###-###-####.
+            </span>
+        </h4><h4>Favorite Menu Item:<br>
+          <input type="text" name="menuitem" style="width:30%;color:black;text-align:center;" required ng-model="signCtrl.MenuItem"><br>
+            <span ng-if="signform.menuitem.$invalid && signform.menuitem.$touched">
+              Please enter the Item number of your favorite dish. Ex. A1
+            </span>
+        </h4>
+        <button style="color:black;"
+          ng-disabled="signform.$invalid"
+          ng-click="signCtrl.submit()">Submit</button>
+          <!-- <div style="margin-top: 10px;">
+            Form valid? {{ signform.$valid }}
+          </div> -->
+      </form>
+    </fieldset>
+  </div>
+  <h2 ng-show="signCtrl.saved" style="text-align:center;">Your Information has been saved</h2>
+</div>

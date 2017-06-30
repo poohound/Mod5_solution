@@ -1,0 +1,27 @@
+<div class="container">
+  <div style="text-align:center;" ng-show="!infoCtrl.showItem">
+    <h1>Not Signed Up Yet. <a ui-sref="public.sign">Sign up Now!</a></h1>
+  </div>
+  <div ng-show="infoCtrl.showItem">
+    <div class="row">
+      <h3 class="col-sm-4">Name: {{infoCtrl.User[0].FirstName}} {{infoCtrl.User[0].LastName}}</h3>
+      <h3 class="col-sm-4">Email: {{infoCtrl.User[0].Email}}</h3>
+      <h3 class="col-sm-4">Phone: {{infoCtrl.User[0].Phone}}</h3>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="menu-item-photo">
+          <div>{{infoCtrl.MenuItem.short_name}}</div>
+          <img class="img-responsive" width="250" height="150" ng-src="{{infoCtrl.ApiPath}}/images/{{infoCtrl.MenuItem.short_name}}.jpg" alt="{{infoCtrl.MenuItem.name}}">
+        </div>
+      </div>
+      <div class="menu-item-description col-sm-7">
+        <h3 class="menu-item-title">{{infoCtrl.MenuItem.name}}</h3>
+        <p class="menu-item-details">{{infoCtrl.MenuItem.description}}</p>
+        <div class="menu-item-price">{{infoCtrl.MenuItem.price_small | currency}}<span> {{infoCtrl.MenuItem.small_portion_name}}</span> {{infoCtrl.MenuItem.price_large | currency}} <span>{{infoCtrl.MenuItem.large_portion_name}}</span></div>
+      </div>
+    </div>
+    <hr class="visible-xs">
+  </div>
+</div>
